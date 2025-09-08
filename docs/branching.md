@@ -1,18 +1,24 @@
-# Branching und mErging
+# Branching und Merging
 
 Modell
-- Default Branch: main
-  
-Merges
-- Nur per Pull Request in main
+Trunk Based Development mit main und kurzlebigen Feature Branches.
+
+Branches
+- main: stabiler Hauptzweig
+- feature/<kurzbeschreibung>: Änderungen und neue Funktionen
+- hotfix/<kurzbeschreibung>: dringende Korrekturen
+- release/<X.Y.Z>: nur bei Bedarf
+
+Pull Requests
+- Empfohlen für jede Änderung
 - Mindestens 1 Review
+- Squash Merge
+- Branch nach Merge löschen
 
 Konflikte
-- Vor PR aktualisieren: Branch mit main abgleichen
-- Konflikte im PR auflösen
-- Nach Auflösung erneut prüfen lassen
+- Branch vor PR mit main abgleichen
+- Konflikte im Editor lösen und erneut prüfen
 
-Releases
+Releases und Tags
 - SemVer: MAJOR.MINOR.PATCH
-- vX.Y.Z als Git Tag
-- Eintrag im Changelog
+- Tags auf main, z. B. v1.0.0

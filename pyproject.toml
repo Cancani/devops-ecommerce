@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devops_ecommerce"
+version = "0.1.0"
+description = "TechStyle Flask E-Commerce app"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools]
+# keine src-Struktur
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]

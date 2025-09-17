@@ -1,0 +1,35 @@
+name: Auto Format (Black + isort)
+
+on:
+  workflow_dispatch: {}
+  pull_request:
+    branches: [ main, develop ]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Install tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install black==24.8.0 isort==5.13.2
+      - name: Run isort + black
+        run: |
+          isort --profile black src tests
+          black src tests
+      - name: Create PR with formatting
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(format): apply black and isort"
+          title: "chore(format): apply black and isort"
+          body: "Automatische Formatierung via CI."
+          branch: ci/auto-format
+          delete-branch: true

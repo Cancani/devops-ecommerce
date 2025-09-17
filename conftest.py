@@ -1,7 +1,5 @@
-# conftest.py
 import os
 import sys
-ROOT = os.path.abspath(os.path.dirname(__file__))
-SRC = os.path.join(ROOT, "src")
-if SRC not in sys.path:
-    sys.path.insert(0, SRC)
+
+# Add the project root directory to Python path
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
